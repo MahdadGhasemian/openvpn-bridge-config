@@ -33,7 +33,7 @@ rm -f create_user.exp
 rm -f add_user.sh
 rm -f info.log
 rm -rf openvpn-data
-rm -rf ./*.ovpn
+rm -f *.ovpn
 
 ## Write compose file
 cat <<EOF > ./docker-compose.yml
