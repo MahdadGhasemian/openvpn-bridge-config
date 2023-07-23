@@ -25,7 +25,7 @@ if [ $? -ne 0 ]
 fi
 
 ## Install expect
-apt-get install expect
+apt-get install expect -y
 
 rm -f docker-compose.yml
 rm -f create_ca.exp
