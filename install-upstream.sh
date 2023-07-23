@@ -175,7 +175,7 @@ docker-compose down
 
 docker-compose run --rm openvpn ovpn_genconfig -u tcp://$IP
 
-sleep 5
+sleep 10
 
 sed -i -e "s/^port [0-9]\+$/port $1/" ./openvpn-data/conf/openvpn.conf
 
