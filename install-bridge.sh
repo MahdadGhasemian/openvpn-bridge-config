@@ -12,7 +12,6 @@ Wants=network-online.target
 Type=simple
 User=root
 Group=root
-WorkingDirectory=%BACKUP_PATH
 ExecStart=/usr/bin/bash ssh -p$1 -f -N -L *:$2:localhost:$3 root@$4
 
 [Install]
