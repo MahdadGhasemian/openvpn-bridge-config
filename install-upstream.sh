@@ -24,6 +24,9 @@ if [ $? -ne 0 ]
     ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 fi
 
+## Install expect
+apt-get install expect
+
 rm -f docker-compose.yml
 rm -f create_ca.exp
 rm -f create_user.exp
