@@ -23,3 +23,4 @@ EOF
 systemctl daemon-reload
 systemctl enable tunnel-to-upstream.service
 systemctl start tunnel-to-upstream.service
+systemctl status tunnel-to-upstream.service
