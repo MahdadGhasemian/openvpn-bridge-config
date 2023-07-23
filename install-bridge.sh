@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ## Write service file
-cat <<EOF > ./tunnel-to-upstream.service
+cat <<EOF > /etc/systemd/system/tunnel-to-upstream.service
 [Unit]
 Description=tunneling to upstream server
 Documentation=https://mahdad.me
@@ -19,6 +19,7 @@ ExecStart=/usr/bin/bash ssh -p$1 -f -N -L *:$2:localhost:$3 root@$4
 WantedBy=multi-user.target
 
 EOF
+
 
 systemctl daemon-reload
 systemctl enable tunnel-to-upstream.service
