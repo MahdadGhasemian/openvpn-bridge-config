@@ -189,13 +189,13 @@ echo ""
 cat <<EOF > ./info.log
 ================================================
 
-## RUN this command to add new user
+## Run this command on your bridge(interanet) server:
+sudo curl -s https://raw.githubusercontent.com/MahdadGhasemian/openvpn-bridge-config/main/install-bridge.sh | bash -s $3 $5 $1 $IP
+
+
+## RUN this command to add new user (on the upstream server)
 ./add_user.sh USERNAME PASSWORD
 example: ./add_user user1 1234
-
-
-## Run this command on your bridge(interanet) server:
-ssh -p$3 -f -N -L *:$5:localhost:$1 root@$IP
 
 ================================================
 
