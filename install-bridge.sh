@@ -8,31 +8,17 @@ Documentation=https://mahdad.me
 After=network.target
 
 [Service]
-Type=simple
+Type=oneshot
 User=root
 Group=root
-WorkingDirectory=/bin/tunnel-to-upstream
-ExecStart=/usr/bin/bash /bin/tunnel-to-upstream/tunnel-to-upstream.sh
-
+Restart=on-failure
 RestartSec=5
-Restart=always
+ExecStart=/usr/bin/ssh -NTC -o ServerAliveInterval=60 -o ExitOnForwardFailure=yes -p$1 -L *:$2:localhost:$3 root@$4
 
 [Install]
 WantedBy=multi-user.target
 
 EOF
-
-mkdir -p /bin/tunnel-to-upstream
-
-## Write script file
-cat <<EOF > /bin/tunnel-to-upstream/tunnel-to-upstream.sh
-#!/bin/bash
-
-ssh -p$1 -f -N -L *:$2:localhost:$3 root@$4
-
-EOF
-
-chmod +x /bin/tunnel-to-upstream/tunnel-to-upstream.sh
 
 systemctl daemon-reload
 systemctl enable tunnel-to-upstream.service
