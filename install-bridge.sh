@@ -11,7 +11,9 @@ After=network.target
 Type=simple
 User=root
 Group=root
-ExecStart=/usr/bin/ssh -p$1 -f -N -L *:$2:localhost:$3 root@$4
+WorkingDirectory=/bin/tunnel-to-upstream
+ExecStart=/usr/bin/bash /bin/tunnel-to-upstream/tunnel-to-upstream.sh
+
 RestartSec=5
 Restart=always
 
@@ -19,6 +21,17 @@ Restart=always
 WantedBy=multi-user.target
 
 EOF
+
+mkdir -p /bin/tunnel-to-upstream
+
+## Write script file
+cat <<EOF > /bin/tunnel-to-upstream/tunnel-to-upstream.sh
+#!/bin/bash
+
+ssh -p$1 -f -N -L *:$2:localhost:$3 root@$4
+
+EOF
+
 
 
 systemctl daemon-reload
