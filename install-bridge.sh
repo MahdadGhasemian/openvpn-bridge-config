@@ -12,7 +12,7 @@ User=root
 Group=root
 Restart=on-failure
 RestartSec=5
-ExecStart=/usr/bin/ssh -NTC -f -o ServerAliveInterval=60 -o ExitOnForwardFailure=yes -p$1 -L *:$2:localhost:$3 root@$4
+ExecStart=/usr/bin/ssh -NTC -o ServerAliveInterval=60 -o ExitOnForwardFailure=yes -p$1 -L *:$2:localhost:$3 root@$4
 
 [Install]
 WantedBy=multi-user.target
