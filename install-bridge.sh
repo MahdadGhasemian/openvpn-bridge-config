@@ -8,7 +8,6 @@ Documentation=https://mahdad.me
 After=network.target
 
 [Service]
-Type=oneshot
 User=root
 Group=root
 Restart=on-failure
