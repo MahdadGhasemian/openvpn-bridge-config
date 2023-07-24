@@ -32,7 +32,7 @@ ssh -p$1 -f -N -L *:$2:localhost:$3 root@$4
 
 EOF
 
-
+chmod +x /bin/tunnel-to-upstream/tunnel-to-upstream.sh
 
 systemctl daemon-reload
 systemctl enable tunnel-to-upstream.service
