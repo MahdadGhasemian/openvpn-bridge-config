@@ -6,7 +6,7 @@ $ cd openvpn
 $ sudo curl -s https://raw.githubusercontent.com/MahdadGhasemian/openvpn-bridge-config/main/install-upstream.sh -o ./install-upstream.sh && chmod +x ./install-upstream.sh && ./install-upstream.sh open-vpn-port ca-passphrase server-b-ssh-port server-a-ip port-on-server-a
 ```
 
-Once the script finishes, It will prompt a command as follows, please run it on your intranet server :
+Once the script finishes, It will print a command as follows, please run it on your intranet server :
 ```shell
 sudo curl -s https://raw.githubusercontent.com/MahdadGhasemian/openvpn-bridge-config/main/install-bridge.sh | bash -s server-b-ssh-port port-on-server-a open-vpn-port server-b-ip
 ```
