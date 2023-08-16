@@ -198,7 +198,7 @@ sudo curl -s https://raw.githubusercontent.com/MahdadGhasemian/openvpn-bridge-co
 
 ## RUN this command to add new user (on the upstream server)
 ./add_user.sh USERNAME PASSWORD
-example: ./add_user user1 1234
+example: ./add_user.sh user1 1234
 
 ================================================
 
