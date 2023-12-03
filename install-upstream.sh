@@ -163,7 +163,7 @@ cat <<EOF > ./add_user.sh
 
 docker-compose run --rm openvpn ovpn_getclient \$1 > \$1.ovpn
 
-sed -i -E 's/^remote[[:space:]]+[0-9.]+[[:space:]]+[0-9]+[[:space:]]+tcp$/remote $4 $5 tcp/' \$1.ovpn
+sed -i -E 's/^remote[[:space:]]+[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+[[:space:]]+[0-9]+[[:space:]]+tcp[[:space:]]*$/remote $4 $5 tcp/' \$1.ovpn
 
 EOF
 
