@@ -171,7 +171,7 @@ EOF
 cat <<EOF > ./add_direct_user.sh
 #!/bin/bash
 
-./create_user.exp \$1 \$2
+./create_user.exp \$1_direct \$2
 
 docker-compose run --rm openvpn ovpn_getclient \$1_direct > \$1_direct.ovpn
 
@@ -216,6 +216,7 @@ example: ./add_user.sh user1 1234
 ## RUN this command to add new direct user. this use can not need to a bridge server to connect to the upstream. (on the upstream server)
 ./add_direct_user.sh USERNAME PASSWORD
 example: ./add_direct_user.sh user1 1234
+note: In direct mode your username will be changed to this pattern: YOUR-USERNAME_direct
 
 ================================================
 
