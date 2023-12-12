@@ -167,9 +167,22 @@ sed -i -E 's/^remote[[:space:]]+[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+[[:space:]]+[0-9]+
 
 EOF
 
+## Write add_direct_user file
+cat <<EOF > ./add_direct_user.sh
+#!/bin/bash
+
+./create_user.exp \$1 \$2
+
+docker-compose run --rm openvpn ovpn_getclient \$1_direct > \$1_direct.ovpn
+
+sed -i -E 's/^remote[[:space:]]+[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+[[:space:]]+[0-9]+[[:space:]]+tcp[[:space:]]*$/remote $IP $1 tcp/' \$1_direct.ovpn
+
+EOF
+
 chmod +x ./create_ca.exp
 chmod +x ./create_user.exp
 chmod +x ./add_user.sh
+chmod +x ./add_direct_user.sh
 
 docker-compose down
 
@@ -199,6 +212,10 @@ sudo curl -s https://raw.githubusercontent.com/MahdadGhasemian/openvpn-bridge-co
 ## RUN this command to add new user (on the upstream server)
 ./add_user.sh USERNAME PASSWORD
 example: ./add_user.sh user1 1234
+
+## RUN this command to add new direct user. this use can not need to a bridge server to connect to the upstream. (on the upstream server)
+./add_direct_user.sh USERNAME PASSWORD
+example: ./add_direct_user.sh user1 1234
 
 ================================================
 
