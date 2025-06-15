@@ -35,13 +35,13 @@ $ ./add_user.sh USERNAME PASSWORD
 
 ![ssh-tunnel](https://github.com/MahdadGhasemian/openvpn-bridge-config/assets/48379992/347f068e-e0e4-4fdc-8586-26acefa3d528)
 
-Server A IP: 87.248.156.100
-Port on Server A: 4445
+- Server A IP: 87.248.156.100
+- Port on Server A: 4445
 
-Server B IP: 65.108.83.101
-OpenVPN Port: 7766
-CA Passphrase: ca1234
-Server B SSH Port: 2221
+- Server B IP: 65.108.83.101
+- OpenVPN Port: 7766
+- CA Passphrase: ca1234
+- Server B SSH Port: 2221
 
 ### on the Server B (Foreign Server):
 ```shell
