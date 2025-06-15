@@ -12,7 +12,7 @@ cd openvpn
 sudo curl -s https://raw.githubusercontent.com/MahdadGhasemian/openvpn-bridge-config/main/install-upstream.sh -o ./install-upstream.sh && chmod +x ./install-upstream.sh && ./install-upstream.sh open-vpn-port ca-passphrase server-b-ssh-port server-a-ip port-on-server-a
 ```
 
-Once the script finishes, It will print a command as follows, please run it on your intranet server :
+Once the script finishes, It will print a command as follows, Please run it on your intranet server :
 ```shell
 sudo curl -s https://raw.githubusercontent.com/MahdadGhasemian/openvpn-bridge-config/main/install-bridge.sh | bash -s server-b-ssh-port port-on-server-a open-vpn-port server-b-ip
 ```
@@ -55,14 +55,14 @@ sudo curl -s https://raw.githubusercontent.com/MahdadGhasemian/openvpn-bridge-co
 ```
 
 ### Add a user on Server B:
-We're gonig to add a user named `user1` with the password `1234`.
-On the server B, run following command:
+We're going to add a user named `user1` with the password `1234`.
+On Server B, run the following command:
 ```shell
 cd openvpn
 ./add_user.sh user1 1234
 ```
 
-Once it finishes, a file called `user1.ovpn` will be generated inside the folder. Download it and add to your client app.
+Once it finishes, a file called `user1.ovpn` will be generated inside the folder. Download it and add it to your client app.
 
 
 
