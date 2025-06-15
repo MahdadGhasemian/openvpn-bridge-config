@@ -26,7 +26,8 @@ sudo curl -s https://raw.githubusercontent.com/MahdadGhasemian/openvpn-bridge-co
 After setup, run the following command to add a new user on the **`Server B`**.
 This will create a new `USERNAME.ovpn` file that you can download and add to your client applications.
 ```shell
-$ ./add_user.sh USERNAME PASSWORD
+cd openvpn
+./add_user.sh USERNAME PASSWORD
 ```
 
 
